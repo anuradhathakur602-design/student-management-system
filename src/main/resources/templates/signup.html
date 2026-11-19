@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Signup</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .signup-box {
+            background: white;
+            padding: 35px;
+            width: 320px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px #00000020;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1e293b;
+        }
+
+        input {
+            width: 92%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .message {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-box">
+
+        <h2>Admin Signup</h2>
+
+        <p class="message" th:if="${error}" th:text="${error}"></p>
+
+        <form th:action="@{/signup}" method="post">
+
+            <input type="text" name="username"
+                   placeholder="Create Username" required>
+
+            <input type="password" name="password"
+                   placeholder="Create Password" required>
+
+            <button type="submit">Create Account</button>
+
+        </form>
+
+        <p style="text-align:center;">
+            Already registered? <a href="/login">Login</a>
+        </p>
+
+    </div>
+
+</body>
+</html>

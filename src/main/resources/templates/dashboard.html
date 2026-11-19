@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+        }
+
+        header {
+            background: #1e293b;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            width: 220px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #00000015;
+        }
+
+        .card h3 {
+            color: #64748b;
+        }
+
+        .card h1 {
+            color: #2563eb;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        a, button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin-right: 10px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .logout {
+            background: #dc2626;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>Student Management System</h2>
+
+    <form th:action="@{/logout}" method="post">
+        <button class="logout" type="submit">Logout</button>
+    </form>
+</header>
+
+<div class="container">
+
+    <h2>Welcome, Admin!</h2>
+
+    <div class="card">
+        <h3>Total Students</h3>
+        <h1 th:text="${totalStudents}">0</h1>
+    </div>
+
+    <div class="buttons">
+        <a href="/">View Students</a>
+    </div>
+
+</div>
+
+</body>
+</html>
